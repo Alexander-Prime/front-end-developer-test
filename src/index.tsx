@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { Provider } from "react-redux";
@@ -11,6 +11,7 @@ import {
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
+import { Masthead } from "components/organisms";
 import {
   AuthorPage,
   CreatePostPage,
@@ -24,21 +25,26 @@ import { add as addComments, fetchComments } from "data/Comment";
 import { add as addPosts, fetchPosts } from "data/Post";
 import { add as addUsers, fetchUsers } from "data/User";
 
+import c from "./index.scss";
+
 const store = createStore(blogReducer, composeWithDevTools());
-const rootElem = document.querySelector(".root");
+const rootElem = document.querySelector(".blog");
 
 const renderRoot = () => {
   const blog = (
     <Provider store={store}>
       <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/404" component={NotFoundPage} />
-          <Route exact path="/create" component={CreatePostPage} />
-          <Route exact path="/:postId" component={ViewPostPage} />
-          <Route exact path="/u/:authorId" component={AuthorPage} />
-          <Redirect from="/*" to="/404" />
-        </Switch>
+        <Fragment>
+          <Masthead className={c.masthead} />
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/404" component={NotFoundPage} />
+            <Route exact path="/create" component={CreatePostPage} />
+            <Route exact path="/:postId" component={ViewPostPage} />
+            <Route exact path="/u/:authorId" component={AuthorPage} />
+            <Redirect from="/*" to="/404" />
+          </Switch>
+        </Fragment>
       </Router>
     </Provider>
   );

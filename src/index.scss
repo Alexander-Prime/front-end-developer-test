@@ -1,9 +1,35 @@
+@import "~common/styles/variables";
+
 /* Site-wide defaults */
 
-* {
-  box-sizing: inherit;
+:global {
+  * {
+    box-sizing: inherit;
+  }
+
+  html {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    height: 100vh;
+  }
+
+  .blog {
+    height: 100vh;
+    display: grid;
+    grid-template:
+      "masthead" var(--masthead-size)
+      "body" minmax(auto, 1fr)
+      "footer" var(--footer-size);
+  }
 }
 
-html {
-  box-sizing: border-box;
+/* Top-level elements */
+
+:local {
+  .masthead {
+    grid-area: masthead;
+  }
 }
