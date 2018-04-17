@@ -15,6 +15,9 @@ import {
 } from "components/pages";
 
 import { reducer as blogReducer } from "data/Blog";
+import { add as addComments, fetchComments } from "data/Comment";
+import { add as addPosts, fetchPosts } from "data/Post";
+import { add as addUsers, fetchUsers } from "data/User";
 
 const store = createStore(blogReducer, composeWithDevTools());
 const rootElem = document.querySelector(".root");
@@ -45,6 +48,10 @@ const renderRoot = () => {
 };
 
 renderRoot();
+
+fetchPosts().then(posts => store.dispatch(addPosts(posts)));
+fetchComments().then(comments => store.dispatch(addComments(comments)));
+fetchUsers().then(users => store.dispatch(addUsers(users)));
 
 if (process.env.NODE_ENV === "development" && module.hot) {
   module.hot.accept("components/pages", renderRoot);
