@@ -1,5 +1,16 @@
 :local {
   .masthead {
     background: #fff;
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0 var(--page-gutter);
+
+    &-title {
+      flex: 0 1 var(--page-width);
+      font: 800 24px serif;
+    }
   }
 }

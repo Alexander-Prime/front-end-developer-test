@@ -14,6 +14,7 @@
   body {
     margin: 0;
     height: 100vh;
+    background: #f4f4f4;
   }
 
   .blog {
@@ -21,7 +22,7 @@
     display: grid;
     grid-template:
       "masthead" var(--masthead-size)
-      "body" minmax(auto, 1fr)
+      "main" minmax(auto, 1fr)
       "footer" var(--footer-size);
   }
 }
@@ -31,5 +32,11 @@
 :local {
   .masthead {
     grid-area: masthead;
+  }
+  .main {
+    grid-area: main;
+  }
+  .footer {
+    grid-area: footer;
   }
 }

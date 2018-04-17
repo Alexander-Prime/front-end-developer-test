@@ -30,6 +30,26 @@ import c from "./index.scss";
 const store = createStore(blogReducer, composeWithDevTools());
 const rootElem = document.querySelector(".blog");
 
+const renderHomePage = (props: any) => (
+  <HomePage {...props} className={c.main} />
+);
+
+const renderNotFoundPage = (props: any) => (
+  <NotFoundPage {...props} className={c.main} />
+);
+
+const renderCreatePostPage = (props: any) => (
+  <CreatePostPage {...props} className={c.main} />
+);
+
+const renderViewPostPage = (props: any) => (
+  <ViewPostPage {...props} className={c.main} />
+);
+
+const renderAuthorPage = (props: any) => (
+  <AuthorPage {...props} className={c.main} />
+);
+
 const renderRoot = () => {
   const blog = (
     <Provider store={store}>
@@ -37,11 +57,11 @@ const renderRoot = () => {
         <Fragment>
           <Masthead className={c.masthead} />
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/404" component={NotFoundPage} />
-            <Route exact path="/create" component={CreatePostPage} />
-            <Route exact path="/:postId" component={ViewPostPage} />
-            <Route exact path="/u/:authorId" component={AuthorPage} />
+            <Route exact path="/" render={renderHomePage} />
+            <Route exact path="/404" render={renderNotFoundPage} />
+            <Route exact path="/create" render={renderCreatePostPage} />
+            <Route exact path="/:postId" render={renderViewPostPage} />
+            <Route exact path="/u/:authorId" render={renderAuthorPage} />
             <Redirect from="/*" to="/404" />
           </Switch>
         </Fragment>
