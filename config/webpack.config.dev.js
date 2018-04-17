@@ -12,6 +12,7 @@ const serverHost = process.env.DEV_SERVER_HOST;
 const serverUrl = `http://${serverHost}:${serverPort}`;
 
 module.exports = {
+  mode: "development",
   resolve: {
     extensions: [".ts", ".tsx", ".js", ".jsx"],
     modules: [path.resolve(__dirname, "../src"), "node_modules"],
