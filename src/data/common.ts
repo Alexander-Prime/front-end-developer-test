@@ -6,4 +6,9 @@ interface Entity {
 
 type EntityTable<T> = Map<string, T>;
 
-export { Entity, EntityTable };
+interface TypedAction<T> {
+  type: T;
+  payload: {};
+}
+
+export { Entity, EntityTable, TypedAction };
