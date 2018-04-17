@@ -31,6 +31,7 @@ module.exports = {
     inline: false,
     quiet: true,
     port: serverPort,
+    historyApiFallback: true,
     publicPath,
   },
   module: {
