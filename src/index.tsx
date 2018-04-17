@@ -2,7 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 
@@ -32,6 +37,7 @@ const renderRoot = () => {
           <Route exact path="/create" component={CreatePostPage} />
           <Route exact path="/:postId" component={ViewPostPage} />
           <Route exact path="/u/:authorId" component={AuthorPage} />
+          <Redirect from="/*" to="/404" />
         </Switch>
       </Router>
     </Provider>
