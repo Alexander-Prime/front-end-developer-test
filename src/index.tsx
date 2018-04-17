@@ -4,6 +4,7 @@ import { AppContainer } from "react-hot-loader";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 
 import {
   AuthorPage,
@@ -13,7 +14,9 @@ import {
   ViewPostPage,
 } from "components/pages";
 
-const store = createStore(_ => ({}));
+import { reducer as blogReducer } from "data/Blog";
+
+const store = createStore(blogReducer, composeWithDevTools());
 const rootElem = document.querySelector(".root");
 
 const renderRoot = () => {
