@@ -35,7 +35,11 @@ const PartialHomePage = (props: Props) => (
 );
 
 const mapStateToProps = (state: Blog): StateProps => ({
-  posts: state.posts.toIndexedSeq().take(15),
+  posts: state.posts
+    .toIndexedSeq()
+    .sortBy(post => post.id)
+    .reverse()
+    .take(15),
 });
 
 const HomePage = connect(mapStateToProps)(PartialHomePage);
