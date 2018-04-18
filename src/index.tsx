@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
 import { Provider } from "react-redux";
@@ -55,7 +55,7 @@ const renderRoot = () => {
   const blog = (
     <Provider store={store}>
       <Router>
-        <Fragment>
+        <>
           <Masthead className={c.masthead} />
           <Switch>
             <Route exact path="/" render={renderHomePage} />
@@ -65,7 +65,7 @@ const renderRoot = () => {
             <Route exact path="/u/:authorId" render={renderAuthorPage} />
             <Redirect from="/*" to="/404" />
           </Switch>
-        </Fragment>
+        </>
       </Router>
     </Provider>
   );
