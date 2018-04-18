@@ -23,14 +23,21 @@ interface StateProps {
 
 type Props = OwnProps & StateProps;
 
-const PartialPostView = (props: Props) => (
-  <li className={classnames(props.className, c.postView)}>
-    <img className={c["postView-thumbnail"]} src={props.photo.thumbnailUrl} />
-    <div className={c["postView-title"]}>{props.post.title}</div>
-    <div className={c["postView-author"]}>{props.user.name}</div>
-    <div className={c["postView-body"]}>{props.post.body}</div>
-  </li>
-);
+const PartialPostView = (props: Props) => {
+  const { photo, post, user } = props;
+  const title =
+    post.title.length > 15 ? post.title.slice(0, 14) + "…" : post.title;
+  const body =
+    post.body.length > 15 ? post.title.slice(0, 29) + "…" : post.body;
+  return (
+    <li className={classnames(props.className, c.postView)}>
+      <img className={c["postView-thumbnail"]} src={photo.thumbnailUrl} />
+      <div className={c["postView-title"]}>{title}</div>
+      <div className={c["postView-author"]}>{user.name}</div>
+      <div className={c["postView-body"]}>{body}</div>
+    </li>
+  );
+};
 
 const mapStateToProps = (state: Blog, props: OwnProps): StateProps => {
   const post = state.posts.get(props.postId, new Post());
