@@ -20,14 +20,14 @@ import {
   ViewPostPage,
 } from "components/pages";
 
-import { reducer as blogReducer } from "data/Blog";
+import { Blog, reducer as blogReducer } from "data/Blog";
 import { add as addComments, fetchComments } from "data/Comment";
 import { add as addPosts, fetchPosts } from "data/Post";
 import { add as addUsers, fetchUsers } from "data/User";
 
 import c from "./index.scss";
 
-const store = createStore(blogReducer, composeWithDevTools());
+const store = createStore(blogReducer, new Blog(), composeWithDevTools());
 const rootElem = document.querySelector(".blog");
 
 const renderHomePage = (props: any) => (
