@@ -17,6 +17,15 @@
     background: #f4f4f4;
   }
 
+  ol,
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
   .blog {
     height: 100vh;
     display: grid;

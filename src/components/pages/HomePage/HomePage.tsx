@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 
 import { CommonAttributes } from "common/types";
 
+import { PostView } from "components/molecules";
+
 import { Blog } from "data/Blog";
 import { Post } from "data/Post";
 
@@ -20,11 +22,15 @@ type Props = OwnProps & StateProps;
 
 const PartialHomePage = (props: Props) => (
   <main className={classnames(props.className, c.homePage)}>
-    {props.posts.map(post => (
-      <div key={post.id} className={c["homePage-post"]}>
-        {post.title}
-      </div>
-    ))}
+    <ol className={c["homePage-posts"]}>
+      {props.posts.map(post => (
+        <PostView
+          className={c["homePage-posts-post"]}
+          key={post.id}
+          postId={post.id}
+        />
+      ))}
+    </ol>
   </main>
 );
 

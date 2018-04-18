@@ -1,5 +1,18 @@
 :local {
   .homePage {
     padding: 0 var(--page-gutter);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    &-posts {
+      width: 100%;
+      max-width: var(--page-width);
+      padding: 4px 0;
+
+      &-post {
+        margin: 4px 0;
+      }
+    }
   }
 }
