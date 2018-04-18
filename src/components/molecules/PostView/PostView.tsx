@@ -1,6 +1,7 @@
 import classnames from "classnames";
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { CommonAttributes } from "common/types";
 
@@ -31,10 +32,17 @@ const PartialPostView = (props: Props) => {
     post.body.length > 15 ? post.title.slice(0, 29) + "…" : post.body;
   return (
     <li className={classnames(props.className, c.postView)}>
-      <img className={c["postView-thumbnail"]} src={photo.thumbnailUrl} />
-      <div className={c["postView-title"]}>{title}</div>
-      <div className={c["postView-author"]}>{user.name}</div>
-      <div className={c["postView-body"]}>{body}</div>
+      <Link className={c["postView-content"]} to={`/${post.id}`}>
+        <img
+          className={c["postView-content-thumbnail"]}
+          src={photo.thumbnailUrl}
+        />
+        <div className={c["postView-content-title"]}>{title}</div>
+        <Link className={c["postView-content-author"]} to={`/u/${user.id}`}>
+          {user.name}
+        </Link>
+        <div className={c["postView-content-body"]}>{body}</div>
+      </Link>
     </li>
   );
 };

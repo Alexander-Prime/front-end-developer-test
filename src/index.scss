@@ -27,6 +27,11 @@
     flex-flow: column nowrap;
   }
 
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
   .blog {
     height: 100vh;
     display: grid;
