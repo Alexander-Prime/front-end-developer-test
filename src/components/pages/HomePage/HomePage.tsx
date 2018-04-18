@@ -35,7 +35,7 @@ const PartialHomePage = (props: Props) => (
 );
 
 const mapStateToProps = (state: Blog): StateProps => ({
-  posts: state.posts.toIndexedSeq(),
+  posts: state.posts.toIndexedSeq().take(15),
 });
 
 const HomePage = connect(mapStateToProps)(PartialHomePage);
