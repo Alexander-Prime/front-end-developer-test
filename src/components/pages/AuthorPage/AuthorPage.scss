@@ -1,5 +1,88 @@
 :local {
   .authorPage {
     padding: 0 var(--page-gutter);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    &-info {
+      width: 100%;
+      max-width: var(--page-width);
+
+      display: grid;
+      grid-template:
+        "header header" auto
+        ". location" auto
+        ". location" auto
+        ". location" auto
+        ". location" auto /
+        1fr 300px;
+
+      &-header {
+        grid-area: header;
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: 1em 0;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: baseline;
+
+        &-username {
+          color: var(--color-fg-secondary);
+          font-size: 0.9em;
+          margin-left: 1ch;
+
+          &::before {
+            content: "(";
+          }
+
+          &::after {
+            content: ")";
+          }
+        }
+      }
+
+      &-detail {
+        display: flex;
+        flex-flow: row wrap;
+        height: 40px;
+
+        &-icon {
+          vertical-align: middle;
+          margin-right: 8px;
+        }
+      }
+
+      &-location {
+        grid-area: location;
+      }
+
+      &-name {
+        font-size: 1.4em;
+
+        &-username {
+          color: var(--color-fg-secondary);
+          margin-left: 1ch;
+          font-size: 0.8em;
+
+          &::before {
+            content: "(";
+          }
+
+          &::after {
+            content: ")";
+          }
+        }
+      }
+    }
+
+    &-address {
+      width: 100%;
+      max-width: var(--page-width);
+
+      &-heading {
+        font-size: 1.2rem;
+      }
+    }
   }
 }
