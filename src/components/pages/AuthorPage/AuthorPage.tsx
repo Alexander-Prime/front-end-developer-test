@@ -6,6 +6,8 @@ import { RouteComponentProps } from "react-router-dom";
 
 import { CommonAttributes } from "common/types";
 
+import { GoogleMap } from "components/atoms";
+
 import { Blog } from "data/Blog";
 import { User } from "data/User";
 
@@ -53,6 +55,7 @@ const PartialAuthorPage = (props: Props) => (
         {props.author.company.bs}
       </div>
       <div className={c["authorPage-info-location"]}>
+        <GoogleMap latLon={props.author.address.geo} />
         <div>{props.author.address.street}</div>
         <div>{props.author.address.suite}</div>
         <div>{props.author.address.city}</div>
