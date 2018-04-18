@@ -22,6 +22,7 @@ import {
 
 import { Blog, reducer as blogReducer } from "data/Blog";
 import { add as addComments, fetchComments } from "data/Comment";
+import { add as addPhotos, fetchPhotos } from "data/Photo";
 import { add as addPosts, fetchPosts } from "data/Post";
 import { add as addUsers, fetchUsers } from "data/User";
 
@@ -89,6 +90,9 @@ fetchComments()
   .catch(console.error);
 fetchUsers()
   .then(users => store.dispatch(addUsers(users)))
+  .catch(console.error);
+fetchPhotos()
+  .then(photos => store.dispatch(addPhotos(photos)))
   .catch(console.error);
 
 if (process.env.NODE_ENV === "development" && module.hot) {

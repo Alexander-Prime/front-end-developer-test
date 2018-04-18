@@ -1,20 +1,20 @@
 import { TypedAction } from "data/common";
 
-import { Post } from "./model";
+import { Photo } from "./model";
 
 const enum ActionTypes {
-  ADD = "[Post] Add",
+  ADD = "[Photo] Add",
 }
 
 type Action = AddAction;
 
 interface AddAction extends TypedAction<ActionTypes.ADD> {
-  payload: { posts: Iterable<Post> };
+  payload: { photos: Iterable<Photo> };
 }
 
-const add = (posts: Iterable<Post>) => ({
+const add = (photos: Iterable<Photo>) => ({
   type: ActionTypes.ADD,
-  payload: { posts },
+  payload: { photos },
 });
 
 export { ActionTypes, Action };
