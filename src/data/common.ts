@@ -1,10 +1,10 @@
 import { Map } from "immutable";
 
 interface Entity {
-  id: string;
+  id: number;
 }
 
-type EntityTable<T> = Map<string, T>;
+type EntityTable<T> = Map<number, T>;
 
 interface TypedAction<T> {
   type: T;

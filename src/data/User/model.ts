@@ -2,6 +2,8 @@ import { Record, ValueObject } from "immutable";
 
 import { hashAll } from "common/utils";
 
+import { Entity } from "data/common";
+
 class LatLon implements ValueObject {
   constructor(readonly lat: string, readonly lon: string) {}
 
@@ -42,8 +44,7 @@ class Company extends Record<CompanyProps>({
   bs: "⋯",
 }) {}
 
-interface UserProps {
-  id: number;
+interface UserProps extends Entity {
   name: string;
   username: string;
   email: string;

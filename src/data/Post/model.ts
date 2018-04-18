@@ -1,8 +1,9 @@
 import { Record } from "immutable";
 
-interface PostProps {
+import { Entity } from "data/common";
+
+interface PostProps extends Entity {
   userId: number;
-  id: number;
   title: string;
   body: string;
 }

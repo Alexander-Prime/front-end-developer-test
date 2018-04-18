@@ -1,8 +1,9 @@
 import { Record } from "immutable";
 
-interface CommentProps {
+import { Entity } from "data/common";
+
+interface CommentProps extends Entity {
   postId: number;
-  id: number;
   name: string;
   email: string;
   body: string;
