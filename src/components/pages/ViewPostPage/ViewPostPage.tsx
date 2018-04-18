@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { Seq } from "immutable";
 import React from "react";
 import { connect, Dispatch } from "react-redux";
-import { RouteComponentProps } from "react-router-dom";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 import { CommonAttributes } from "common/types";
 
@@ -47,7 +47,12 @@ class PartialViewPostPage extends React.PureComponent<Props> {
       <main className={classnames(className, c.viewPostPage)}>
         <header className={c["viewPostPage-header"]}>
           <h1 className={c["viewPostPage-header-title"]}>{post.title}</h1>
-          <h2 className={c["viewPostPage-header-author"]}>{author.name}</h2>
+          <Link
+            className={c["viewPostPage-header-author"]}
+            to={`/u/${author.id}`}
+          >
+            {author.name}
+          </Link>
           <div
             className={c["viewPostPage-header-photo"]}
             style={photoStyle}
