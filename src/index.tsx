@@ -81,9 +81,15 @@ const renderRoot = () => {
 
 renderRoot();
 
-fetchPosts().then(posts => store.dispatch(addPosts(posts)));
-fetchComments().then(comments => store.dispatch(addComments(comments)));
-fetchUsers().then(users => store.dispatch(addUsers(users)));
+fetchPosts()
+  .then(posts => store.dispatch(addPosts(posts)))
+  .catch(console.error);
+fetchComments()
+  .then(comments => store.dispatch(addComments(comments)))
+  .catch(console.error);
+fetchUsers()
+  .then(users => store.dispatch(addUsers(users)))
+  .catch(console.error);
 
 if (process.env.NODE_ENV === "development" && module.hot) {
   module.hot.accept("components/pages", renderRoot);
