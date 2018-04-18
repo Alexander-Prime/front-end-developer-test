@@ -44,6 +44,19 @@
       margin-top: 4ex;
       width: 100%;
       max-width: var(--page-width);
+      padding: 0 4rem;
+      display: flex;
+      flex-flow: column nowrap;
+
+      &-header {
+        font-size: 0.9rem;
+        font-weight: bold;
+        margin-bottom: 1em;
+      }
+
+      &-comment {
+        margin: 1em 0;
+      }
     }
   }
 }

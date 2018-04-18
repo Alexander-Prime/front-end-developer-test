@@ -6,6 +6,8 @@ import { RouteComponentProps } from "react-router-dom";
 
 import { CommonAttributes } from "common/types";
 
+import { CommentView } from "components/molecules";
+
 import { Blog } from "data/Blog";
 import { Comment } from "data/Comment";
 import { Photo } from "data/Photo";
@@ -45,10 +47,15 @@ const PartialViewPostPage = (props: Props) => {
       </header>
       <section className={c["viewPostPage-body"]}>{post.body}</section>
       <section className={c["viewPostPage-comments"]}>
+        <header className={c["viewPostPage-comments-header"]}>
+          {Seq(comments).count()} comments
+        </header>
         {Seq.Indexed(comments).map(comment => (
-          <div key={comment.id} className={c["viewPostPage-comments-comment"]}>
-            {comment.body}
-          </div>
+          <CommentView
+            key={comment.id}
+            className={c["viewPostPage-comments-comment"]}
+            commentId={comment.id}
+          />
         ))}
       </section>
     </main>
