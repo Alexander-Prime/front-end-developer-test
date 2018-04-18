@@ -57,6 +57,41 @@ const PartialViewPostPage = (props: Props) => {
             commentId={comment.id}
           />
         ))}
+        <form className={c["viewPostPage-comments-form"]}>
+          <label
+            htmlFor="comment-name"
+            className={c["viewPostPage-comments-form-label"]}
+          >
+            Name
+          </label>
+          <input
+            id="comment-name"
+            className={c["viewPostPage-comments-form-name"]}
+          />
+          <label
+            htmlFor="comment-email"
+            className={c["viewPostPage-comments-form-label"]}
+          >
+            Email
+          </label>
+          <input
+            id="comment-email"
+            className={c["viewPostPage-comments-form-email"]}
+          />
+          <label
+            htmlFor="comment-body"
+            className={c["viewPostPage-comments-form-label"]}
+          >
+            Comment
+          </label>
+          <textarea
+            id="comment-body"
+            className={c["viewPostPage-comments-form-body"]}
+          />
+          <button className={c["viewPostPage-comments-form-submit"]}>
+            Post comment
+          </button>
+        </form>
       </section>
     </main>
   );

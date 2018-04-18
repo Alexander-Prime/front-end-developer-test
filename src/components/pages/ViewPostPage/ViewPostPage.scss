@@ -57,6 +57,26 @@
       &-comment {
         margin: 1em 0;
       }
+
+      &-form {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: stretch;
+
+        &-label {
+          font-size: 0.8em;
+          margin-top: 8px;
+        }
+
+        &-body {
+          min-height: 8em;
+        }
+
+        &-submit {
+          align-self: flex-start;
+          margin-top: 8px;
+        }
+      }
     }
   }
 }
