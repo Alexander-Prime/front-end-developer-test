@@ -11,6 +11,7 @@ interface BlogProps {
   photos: EntityTable<Photo>;
   posts: EntityTable<Post>;
   users: EntityTable<User>;
+  notification: string;
 }
 
 class Blog extends Record<BlogProps>({
@@ -18,6 +19,7 @@ class Blog extends Record<BlogProps>({
   photos: Map(),
   posts: Map(),
   users: Map(),
+  notification: "",
 }) {}
 
 export { Blog };
