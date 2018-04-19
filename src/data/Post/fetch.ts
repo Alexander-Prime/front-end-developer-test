@@ -3,7 +3,9 @@ import { Post } from "./model";
 const getPosts = (): Promise<Iterable<Post>> =>
   fetch("https://jsonplaceholder.typicode.com/posts")
     .then(res => res.json() as Promise<any[]>)
-    .then(arr => arr.map(post => new Post({ ...post })));
+    .then(arr =>
+      arr.filter(post => !!post.title).map(post => new Post({ ...post })),
+    );
 
 const postPost = (userId: number, title: string, body: string): Promise<Post> =>
   fetch("https://jsonplaceholder.typicode.com/posts", {
