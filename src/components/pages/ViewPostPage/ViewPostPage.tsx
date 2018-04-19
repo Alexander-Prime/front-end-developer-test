@@ -9,7 +9,7 @@ import { CommonAttributes } from "common/types";
 import { CommentView } from "components/molecules";
 
 import { Blog } from "data/Blog";
-import { add as addComments, Comment } from "data/Comment";
+import { add as addComments, Comment, postComment } from "data/Comment";
 import { Photo } from "data/Photo";
 import { Post } from "data/Post";
 import { User } from "data/User";
@@ -119,18 +119,19 @@ class PartialViewPostPage extends React.PureComponent<Props> {
   }
 
   private onSubmitComment = () => {
-    this.props.addComments([
-      new Comment({
-        postId: this.props.post.id,
-        id: Date.now(),
-        name: this.commentNameElem ? this.commentNameElem.value : "",
-        email: this.commentEmailElem ? this.commentEmailElem.value : "",
-        body: this.commentBodyElem ? this.commentBodyElem.value : "",
-      }),
-    ]);
-    if (this.commentBodyElem) {
-      this.commentBodyElem.value = "";
-    }
+    postComment(
+      this.props.post.id,
+      this.commentNameElem ? this.commentNameElem.value : "",
+      this.commentEmailElem ? this.commentEmailElem.value : "",
+      this.commentBodyElem ? this.commentBodyElem.value : "",
+    )
+      .then(comment => {
+        this.props.addComments([comment]);
+        if (this.commentBodyElem) {
+          this.commentBodyElem.value = "";
+        }
+      })
+      .catch(console.error);
   };
 }
 

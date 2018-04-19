@@ -8,4 +8,9 @@ const hashAll = (...values: any[]): number => {
   return result;
 };
 
-export { hashAll };
+const sleep = (ms: number) =>
+  new Promise((resolve, _) => {
+    setTimeout(resolve, ms);
+  });
+
+export { hashAll, sleep };

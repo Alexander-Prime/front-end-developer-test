@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
-import { Provider, connect } from "react-redux";
+import { connect, Provider } from "react-redux";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -23,9 +23,9 @@ import {
 import { Toast } from "components/atoms";
 
 import { Blog, reducer as blogReducer } from "data/Blog";
-import { add as addComments, fetchComments } from "data/Comment";
+import { add as addComments, getComments } from "data/Comment";
 import { add as addPhotos, fetchPhotos } from "data/Photo";
-import { add as addPosts, fetchPosts } from "data/Post";
+import { add as addPosts, getPosts } from "data/Post";
 import { add as addUsers, fetchUsers } from "data/User";
 
 import c from "./index.scss";
@@ -89,10 +89,10 @@ const renderRoot = () => {
 
 renderRoot();
 
-fetchPosts()
+getPosts()
   .then(posts => store.dispatch(addPosts(posts)))
   .catch(console.error);
-fetchComments()
+getComments()
   .then(comments => store.dispatch(addComments(comments)))
   .catch(console.error);
 fetchUsers()

@@ -5,9 +5,10 @@ import { connect, Dispatch } from "react-redux";
 import { withRouter } from "react-router";
 
 import { CommonAttributes } from "common/types";
+import { sleep } from "common/utils";
 
 import { Blog, setNotification } from "data/Blog";
-import { add as addPosts, Post } from "data/Post";
+import { add as addPosts, Post, postPost } from "data/Post";
 
 import c from "./CreatePostPage.scss";
 
@@ -57,17 +58,19 @@ class PartialCreatePostPage extends React.PureComponent<Props> {
   }
 
   onSubmit = (history: History) => () => {
-    this.props.addPosts([
-      new Post({
-        userId: 1,
-        id: Date.now(),
-        title: this.titleElem ? this.titleElem.value : "",
-        body: this.bodyElem ? this.bodyElem.value : "",
-      }),
-    ]);
-    history.replace("/");
-    this.props.setNotification("Post successful");
-    setTimeout(() => this.props.setNotification(""), 3000);
+    postPost(
+      1,
+      this.titleElem ? this.titleElem.value : "",
+      this.bodyElem ? this.bodyElem.value : "",
+    )
+      .then(post => this.props.addPosts([post]))
+      .then(() => {
+        history.replace("/");
+        this.props.setNotification("Post successful");
+        return sleep(3000);
+      })
+      .then(() => this.props.setNotification(""))
+      .catch(console.error);
   };
 }
 
