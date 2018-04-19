@@ -1,3 +1,12 @@
+### Running
+
+    $> npm install
+    $> npm run dev
+
+### Testing
+
+    $> npm run test:watch
+
 ## Requirements
 
 * A home page with a list of posts and their
