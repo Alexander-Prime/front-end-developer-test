@@ -40,3 +40,9 @@
 
   🗹 For implementation use state management library like Redux or Mobx.  
   🗹 Write some tests.
+
+## Screenshots
+
+![Home screen](/readme-assets/screenshots/home.png?raw=true)
+![Post viewer](/readme-assets/screenshots/post.png?raw=true)
+![User info](/readme-assets/screenshots/user.png?raw=true)
