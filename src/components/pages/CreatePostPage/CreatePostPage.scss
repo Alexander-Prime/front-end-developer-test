@@ -1,5 +1,24 @@
 :local {
   .createPostPage {
     padding: 0 var(--page-gutter);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    &-form {
+      width: 100%;
+      max-width: var(--page-width);
+
+      &-header {
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: 1em 0;
+      }
+
+      &-body {
+        width: 100%;
+        min-height: 16rem;
+      }
+    }
   }
 }

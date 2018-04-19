@@ -16,7 +16,6 @@ const Toast = (props: Props) => (
     })}
   >
     {props.text}
-    {console.log(props.text)}
   </div>
 );
 
