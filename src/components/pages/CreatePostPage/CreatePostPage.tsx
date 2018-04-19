@@ -43,11 +43,15 @@ class PartialCreatePostPage extends React.PureComponent<Props> {
           <header className={c["createPostPage-form-header"]}>
             Create a post
           </header>
+          <label htmlFor="title">Title</label>
           <input
+            id="title"
             className={c["createPostPage-form-title"]}
             ref={elem => (this.titleElem = elem)}
           />
+          <label htmlFor="body">Body</label>
           <textarea
+            id="body"
             className={c["createPostPage-form-body"]}
             ref={elem => (this.bodyElem = elem)}
           />
