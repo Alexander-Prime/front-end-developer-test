@@ -38,7 +38,8 @@
     grid-template:
       "masthead" var(--masthead-size)
       "main" minmax(auto, 1fr)
-      "footer" var(--footer-size);
+      "footer" var(--footer-size) /
+      1fr;
   }
 }
 
@@ -48,10 +49,22 @@
   .masthead {
     grid-area: masthead;
   }
+
   .main {
     grid-area: main;
+    margin-bottom: 48px;
   }
+
   .footer {
     grid-area: footer;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+
+    &-notice {
+      display: block;
+      width: 100%;
+      max-width: var(--page-width);
+    }
   }
 }

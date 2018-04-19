@@ -63,6 +63,7 @@ const renderRoot = () => {
       <Router>
         <>
           <Masthead className={c.masthead} />
+          <RenderToast />
           <Switch>
             <Route exact path="/" render={renderHomePage} />
             <Route exact path="/404" render={renderNotFoundPage} />
@@ -71,7 +72,11 @@ const renderRoot = () => {
             <Route exact path="/u/:authorId" render={renderAuthorPage} />
             <Redirect from="/*" to="/404" />
           </Switch>
-          <RenderToast />
+          <footer className={c.footer}>
+            <small className={c["footer-notice"]}>
+              Blah blah copyright affiliates sitemap
+            </small>
+          </footer>
         </>
       </Router>
     </Provider>
