@@ -6,7 +6,7 @@
     align-items: center;
 
     &-header {
-      width: 100%;
+      width: 100vw;
       max-width: var(--page-width);
 
       &-title {
@@ -31,7 +31,7 @@
     }
 
     &-body {
-      width: 100%;
+      width: 100vw;
       max-width: var(--page-width);
 
       &::first-letter {
@@ -44,9 +44,9 @@
 
     &-comments {
       margin-top: 4ex;
-      width: 100%;
+      width: 100vw;
       max-width: var(--page-width);
-      padding: 0 4rem;
+      padding: 0 calc(var(--page-gutter) * 4);
       display: flex;
       flex-flow: column nowrap;
 
