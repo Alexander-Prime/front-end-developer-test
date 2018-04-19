@@ -33,9 +33,9 @@ const PartialPostView = (props: Props) => {
   return (
     <li className={classnames(props.className, c.postView)}>
       <Link className={c["postView-content"]} to={`/${post.id}`}>
-        <img
+        <div
           className={c["postView-content-thumbnail"]}
-          src={photo.thumbnailUrl}
+          style={{ backgroundImage: `url("${photo.thumbnailUrl}")` }}
         />
         <div className={c["postView-content-title"]}>{title}</div>
         <div className={c["postView-content-author"]}>{user.name}</div>

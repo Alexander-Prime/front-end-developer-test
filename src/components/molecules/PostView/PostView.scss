@@ -1,28 +1,17 @@
 :local {
   .postView {
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
-    height: 144px;
-
     &-content {
       height: 100%;
-      display: grid;
-      grid-template:
-        "thumb title" 2fr
-        "thumb author" 1fr
-        "thumb body" 3fr /
-        192px 1fr;
-      grid-column-gap: 16px;
-      align-items: center;
-      padding-right: 16px;
+      display: flex;
+      flex-flow: column nowrap;
 
       &-thumbnail {
-        border-radius: 4px 0 0 4px;
         grid-area: thumb;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
+        height: 0;
+        padding-top: (9/16 * 100%);
+        background-size: cover;
+        background-position: center;
       }
 
       &-title {
