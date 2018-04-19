@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { AppContainer } from "react-hot-loader";
-import { Provider } from "react-redux";
+import { Provider, connect } from "react-redux";
 import {
   BrowserRouter as Router,
   Redirect,
@@ -19,6 +19,8 @@ import {
   NotFoundPage,
   ViewPostPage,
 } from "components/pages";
+
+import { Toast } from "components/atoms";
 
 import { Blog, reducer as blogReducer } from "data/Blog";
 import { add as addComments, fetchComments } from "data/Comment";
@@ -51,6 +53,10 @@ const renderAuthorPage = (props: any) => (
   <AuthorPage {...props} className={c.main} />
 );
 
+const RenderToast = connect((state: Blog) => ({ text: state.notification }))(
+  Toast,
+);
+
 const renderRoot = () => {
   const blog = (
     <Provider store={store}>
@@ -65,6 +71,7 @@ const renderRoot = () => {
             <Route exact path="/u/:authorId" render={renderAuthorPage} />
             <Redirect from="/*" to="/404" />
           </Switch>
+          <RenderToast />
         </>
       </Router>
     </Provider>
